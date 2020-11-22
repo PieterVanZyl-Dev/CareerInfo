@@ -1,0 +1,126 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Technology Developer Work Information</h1>
+    <p class="lead">No SQL, Presents Job Information for University Students and Gradutes to know more about their future !</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-large">Login/Register &raquo;</a></p>
+</div>
+
+<table class="tabstyle" style="margin-top:20px">
+    <tr>
+        <td style="padding:25px">
+            <div class="desc">
+                <p>
+                    You need to be logged in, to access the dashboard start by registering if you aren't registered already !
+                </p>
+            </div>
+            <div class="sf-samples">
+                <ul class="ulstyle">
+                    <li class="list">
+                        <div class="column">
+                            @Html.ActionLink("DataGrid", "DataGridFeatures", "DataGrid", null, new { Style = "text-decoration:none;color:#616161;" })
+                        </div>
+                    </li>
+                    <li class="list">
+                        <div class="column">
+                            @Html.ActionLink("Chart", "ChartFeatures", "Chart", null, new { Style = "text-decoration:none;color:#616161;" })
+                        </div>
+                    </li>
+                    <li class="list">
+                        <div class="column">
+                            @Html.ActionLink("AccumulationChart", "AccumulationChartFeatures", "AccumulationChart", null, new { Style = "text-decoration:none;color:#616161;" })
+                        </div>
+                    </li>
+                    <li class="list">
+                        <div class="column">
+                            @Html.ActionLink("Maps", "MapsFeatures", "Maps", null, new { Style = "text-decoration:none;color:#616161;" })
+                        </div>
+                    </li>
+                    <li class="list">
+                        <div class="column">
+                            @Html.ActionLink("Schedule", "ScheduleFeatures", "Schedule", null, new { Style = "text-decoration:none;color:#616161;" })
+                        </div>
+                    </li>
+                    <li class="list">
+                        <div class="column">
+                            @Html.ActionLink("Card", "CardFeatures", "Card", null, new { Style = "text-decoration:none;color:#616161;" })
+                        </div>
+                    </li>
+                    <li class="list">
+                        <div class="column">
+                            @Html.ActionLink("Dialog", "DialogFeatures", "Dialog", null, new { Style = "text-decoration:none;color:#616161;" })
+                        </div>
+                    </li>
+                    <li class="list">
+                        <div class="column">
+                            @Html.ActionLink("DatePicker", "DatePickerFeatures", "DatePicker", null, new { Style = "text-decoration:none;color:#616161;" })
+                        </div>
+                    </li>
+                    <li class="list">
+                        <div class="column">
+                            @Html.ActionLink("Button", "ButtonFeatures", "Button", null, new { Style = "text-decoration:none;color:#616161;" })
+                        </div>
+                    </li>
+                    <li class="list">
+                        <div class="column">
+                            @Html.ActionLink("TimePicker", "TimePickerFeatures", "TimePicker", null, new { Style = "text-decoration:none;color:#616161;" })
+                        </div>
+                    </li>
+                    <li class="list">
+                        <div class="column">
+                            @Html.ActionLink("SideBar", "SideBarFeatures", "SideBar", null, new { Style = "text-decoration:none;color:#616161;" })
+                        </div>
+                    </li>
+                    <li class="list">
+                        <div class="column">
+                            @Html.ActionLink("PivotGrid", "PivotGridFeatures", "PivotGrid", null, new { Style = "text-decoration:none;color:#616161;" })
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+</table>
+<div class="clear"> </div>
+
+<div class="row">
+    <div class="col-md-3">
+        <h3>Application uses</h3>
+        <ul>
+            <li>Sample pages using ASP.NET Core MVC</li>
+            <li>Theming using <a href="https://go.microsoft.com/fwlink/?LinkID=398939">Bootstrap</a></li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h3>How to</h3>
+        <ul>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398600">Add a Controller and View</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699315">Manage User Secrets using Secret Manager.</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699316">Use logging to log a message.</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Add packages using NuGet.</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699319">Target development, staging or production environment.</a></li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h3>Overview</h3>
+        <ul>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=518008">Conceptual overview of what is ASP.NET Core</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699320">Fundamentals of ASP.NET Core such as Startup and middleware.</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398602">Working with Data</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398603">Security</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699321">Client side development</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699322">Develop on different platforms</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699323">Read more on the documentation site</a></li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h3>Run &amp; Deploy</h3>
+        <ul>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517851">Run your app</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517853">Run tools such as EF migrations and more</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
+        </ul>
+    </div>
+</div>

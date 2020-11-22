@@ -1,0 +1,47 @@
+﻿<style>
+    .e-image {
+        height: 13px;
+        width: 14px;
+    }
+</style>
+<ejs-grid id="Grid" width="1200" height="720" allowPaging="true" allowSorting="true" dataBound="dataBound" allowFiltering="true" toolbar="@(new List<string>() { "Add", "Edit", "Delete","Update","Cancel" })" allowSelection="true" allowExcelExport="true" toolbarClick="toolbarClick">
+    <e-data-manager url="/Jobs/UrlDataSource" adaptor="UrlAdaptor" insertUrl="/Jobs/Insert" updateUrl="/Jobs/Update" removeUrl="/Jobs/Delete"></e-data-manager>
+    <e-grid-editSettings allowAdding="true" allowDeleting="true" allowEditing="true" mode="Dialog"></e-grid-editSettings>
+    <e-grid-pagesettings pageSize="18"> </e-grid-pagesettings>
+    <e-grid-filtersettings type="Menu"></e-grid-filtersettings>
+    <e-grid-selectionsettings type="Single"></e-grid-selectionsettings>
+    <e-grid-columns>
+        <e-grid-column type="checkbox" width="40"></e-grid-column>
+        <e-grid-column field="Job_title" headerText="Job_title" width="140"></e-grid-column>
+        <e-grid-column field="location" headerText="Location" template="#coltemplate" width="140"></e-grid-column>
+        <e-grid-column field="Requirements.Education" headerText="Education" width="140"></e-grid-column>
+        <e-grid-column field="Requirements.Experience" headerText="Experience" width="140"></e-grid-column>
+        <e-grid-column field="Requirements.Languages" headerText="Languages" width="140"></e-grid-column>
+        <e-grid-column field="Date_posted" format='yMd' headerText="Date Posted"></e-grid-column>
+        <e-grid-column field="Salary" headerText="Salary"></e-grid-column>
+        <e-grid-column field="company_name" headerText="Company"></e-grid-column>
+        <e-grid-column field="Spoken_Languages" visible="false" headerText="Spoken_Languages"></e-grid-column>
+
+        <e-grid-column field="Site_link" visible="false" headerText="Site_link"></e-grid-column>
+        <e-grid-column field="Id" headerText="Id" isPrimaryKey="true" isIdentity="true"></e-grid-column>
+    </e-grid-columns>
+</ejs-grid>
+
+<script id="coltemplate" type="text/x-template">
+    <div class="image">
+        <img src="@Url.Content("~/images/Map.png")" class="e-image" alt="${location}" /> &nbsp
+        <span id="locationtext">${location}</span>
+    </div>
+</script>
+
+
+<script>
+    function dataBound(args) {
+        this.autoFitColumns();
+    }
+    function toolbarClick(args) {
+        if (args.item.id === this.element.id + '_csvexport') {
+            this.csvExport();
+        }
+    }
+</script>
