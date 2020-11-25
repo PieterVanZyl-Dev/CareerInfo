@@ -42,6 +42,8 @@ namespace CareerInfo.Models
         public string Job_id { get; set; }
         public string Spoken_Languages { get; set; }
         public string Site_link { get; set; }
+
+        public string job_Description { get; set; }
         public payment_type payment_type { get; set; }
     }
 

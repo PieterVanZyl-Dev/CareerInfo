@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CareerInfo.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CareerInfo.Controllers
 {
@@ -21,6 +22,7 @@ namespace CareerInfo.Controllers
 
             return View();
         }
+        [Authorize]
         public IActionResult Dashboard()
         {
             ViewData["Message"] = "Your application description page.";

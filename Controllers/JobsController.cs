@@ -6,10 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using CareerInfo.Models;
 using CareerInfo.Services;
 using MongoDB.Bson;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CareerInfo.Controllers
 {
-  public class JobsController : Controller
+    [Authorize]
+    public class JobsController : Controller
   {
         private readonly JobService _jobService;
 
@@ -19,6 +21,10 @@ namespace CareerInfo.Controllers
         }
 
         public ActionResult Jobs()
+        {
+            return View();
+        }
+        public ActionResult JobDetails()
         {
             return View();
         }

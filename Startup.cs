@@ -17,6 +17,7 @@ using Microsoft.Extensions.Options;
 using CareerInfo.Services;
 using System.IO;
 using Syncfusion.Licensing;
+using Oracle.ManagedDataAccess.Client;
 
 namespace CareerInfo
 {
@@ -44,10 +45,12 @@ namespace CareerInfo
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseOracle(
                     Configuration.GetConnectionString("OracleDBContextConnection")));
             services.AddDefaultIdentity<IdentityUser>()
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
 
@@ -57,9 +60,14 @@ namespace CareerInfo
             services.AddSingleton<IMongoDBsettings>(sp =>
                         sp.GetRequiredService<IOptions<MongoDBsettings>>().Value);
 
+
+
             services.AddSingleton<JobService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -76,9 +84,12 @@ namespace CareerInfo
                 app.UseHsts();
             }
 
+            app.UseStaticFiles();
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
 
             app.UseAuthentication();
 
