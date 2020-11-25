@@ -47,5 +47,4 @@ namespace CareerInfo.Models
         public payment_type payment_type { get; set; }
     }
 
-
 }

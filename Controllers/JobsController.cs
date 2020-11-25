@@ -8,6 +8,7 @@ using CareerInfo.Services;
 using MongoDB.Bson;
 using Microsoft.AspNetCore.Authorization;
 using System.Net;
+using System;
 
 namespace CareerInfo.Controllers
 {
@@ -25,26 +26,32 @@ namespace CareerInfo.Controllers
         {
             return View();
         }
-        public ActionResult Details(ObjectId? id)
+        public ActionResult Details(string id)
         {
-            ObjectId idnotnull;
-            if (id == null)
+            if(id == "")
             {
-                return BadRequest()
-                
-            }else
-            {
-                idnotnull = id.GetValueOrDefault();
+                return BadRequest();
             }
+            try
+            {
 
-            Job job = _jobService.Get(idnotnull);
+                Job job = _jobService.Get(ObjectId.Parse(id));
 
+
+            
             //if job does not exist 
             if (job == null)
             {
-                return NotFound()
+                return NotFound();
+            
             }
+
             return View(job);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
         }
         public ActionResult UrlDatasource([FromBody]DataManagerRequest dm)
         {
