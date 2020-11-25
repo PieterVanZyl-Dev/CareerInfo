@@ -45,7 +45,6 @@ namespace CareerInfo
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseOracle(
                     Configuration.GetConnectionString("OracleDBContextConnection")));
