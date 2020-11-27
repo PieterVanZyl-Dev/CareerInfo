@@ -18,6 +18,7 @@ using CareerInfo.Services;
 using System.IO;
 using Syncfusion.Licensing;
 using Oracle.ManagedDataAccess.Client;
+using CareerInfo.Temp;
 
 namespace CareerInfo
 {
@@ -44,14 +45,19 @@ namespace CareerInfo
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+ 
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseOracle(
                     Configuration.GetConnectionString("OracleDBContextConnection")));
             services.AddDefaultIdentity<IdentityUser>()
-                .AddRoles<IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                    .AddRoles<IdentityRole>()
+                    .AddEntityFrameworkStores<ApplicationDbContext>();
 
+
+            services.AddDbContext<ModelContext>(options =>
+                options.UseOracle(
+                    Configuration.GetConnectionString("OracleDBContextConnection")));
 
             services.Configure<MongoDBsettings>(
                          Configuration.GetSection(nameof(MongoDBsettings)));

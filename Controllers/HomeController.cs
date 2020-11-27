@@ -6,11 +6,21 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CareerInfo.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Collections;
+using CareerInfo.Services;
 
 namespace CareerInfo.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly JobService _jobService;
+
+        public HomeController(JobService jobService)
+        {
+            _jobService = jobService;
+        }
+
+
         public IActionResult Index()
         {
             return View();
@@ -18,14 +28,18 @@ namespace CareerInfo.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
-
             return View();
         }
         [Authorize]
         public IActionResult Dashboard()
         {
-            ViewData["Message"] = "Your application description page.";
+            long count = _jobService.Count();
+            List<double> average = _jobService.Average();
+
+            ViewData["JobCount"] = count;
+            ViewData["AverageSalary"] = Math.Round(average[0], 2, MidpointRounding.AwayFromZero);
+            ViewData["FavouritedJobs"] = "7";
+            ViewData["TotalCompanies"] = "90";
 
             return View();
         }

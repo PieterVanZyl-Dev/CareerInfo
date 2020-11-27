@@ -38,7 +38,6 @@ namespace CareerInfo.Models
         public string Job_title { get; set; }
         public string Search_indeed { get; set; }
         public string location { get; set; }
-        public int Salary { get; set; }
         public string Job_id { get; set; }
         public string Spoken_Languages { get; set; }
         public string Site_link { get; set; }

@@ -22,9 +22,11 @@ namespace CareerInfo.Controllers
             _jobService = jobService;
         }
 
+
         public ActionResult Jobs()
         {
-            return View();
+            ViewData["IsAdmin"] = User.IsInRole("Admin");
+                return View();
         }
         public ActionResult Details(string id)
         {
@@ -34,11 +36,8 @@ namespace CareerInfo.Controllers
             }
             try
             {
-
                 Job job = _jobService.Get(ObjectId.Parse(id));
-
-
-            
+ 
             //if job does not exist 
             if (job == null)
             {
@@ -106,7 +105,7 @@ namespace CareerInfo.Controllers
             // val.Company.name = ord.Company.name;
             val.Date_posted = ord.Date_posted;
             val.Job_title = ord.Job_title;
-            val.Salary = ord.Salary;
+            val.payment_type.amount = ord.payment_type.amount;
             val.Job_id = ord.Job_id;
             val.Spoken_Languages = ord.Spoken_Languages;
             val.Site_link = ord.Site_link;

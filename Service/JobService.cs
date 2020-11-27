@@ -4,6 +4,7 @@ using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace CareerInfo.Services
 {
@@ -22,6 +23,11 @@ namespace CareerInfo.Services
         public List<Job> Get() =>
             _jobs.Find(job => true).ToList();
 
+        public async Task<List<Job>> GetAsync()
+        {
+            return await _jobs.Find(job => true).ToListAsync();
+        }
+
         public List<BsonDocument> GetLangauges()
         {
             return _jobs.Find(FilterDefinition<Job>.Empty)
@@ -31,10 +37,37 @@ namespace CareerInfo.Services
         public Job Get(ObjectId id) =>
             _jobs.Find<Job>(job => job.Id == id).FirstOrDefault();
 
+        public long Count() =>
+        _jobs.CountDocuments(job => true);
+
         public Job Create(Job job)
         {
             _jobs.InsertOne(job);
             return job;
+        }
+
+        public List<double> Average()
+        {
+
+            var q = from doc in _jobs.AsQueryable()
+                    where doc.payment_type.amount > 1000
+                    where doc.payment_type.amount < 999999
+                    group doc by (Job)null into gr
+                    select new 
+                    {
+                        Avg = (double)gr.Average(x => x.payment_type.amount),
+                        Min = gr.Min(x => x.payment_type.amount),
+                        Max = gr.Max(x => x.payment_type.amount)
+                    };
+
+            var result = q.First();
+
+            List<double> AverageMinMax = new List<double>();
+            AverageMinMax.Add(result.Avg);
+            AverageMinMax.Add(result.Min);
+            AverageMinMax.Add(result.Max);
+
+            return AverageMinMax;
         }
 
         public void Update(ObjectId id, Job jobIn) =>
@@ -43,4 +76,6 @@ namespace CareerInfo.Services
         public void Remove(ObjectId id) =>
             _jobs.DeleteOne(job => job.Id == id);
     }
+
+
 }

@@ -1,0 +1,30 @@
+﻿@model CareerInfo.Temp.Favouritejobs
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Favouritejobs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Jobid)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Jobid)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.User.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Favouriteid">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

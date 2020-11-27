@@ -1,0 +1,28 @@
+﻿<ejs-grid id="Grid" dataSource="@ViewBag.datasource" height="272" allowPaging="true" toolbar="@(new List<string>() { "Add", "Edit", "Delete","Update","Cancel" , "CsvExport" })" allowSelection="true" allowExcelExport="true" toolbarClick="toolbarClick">
+ <e-grid-editSettings allowAdding="true" allowDeleting="true" allowEditing="true" mode="Normal"></e-grid-editSettings> 
+<e-grid-selectionsettings type="Single"></e-grid-selectionsettings>
+  <e-grid-columns>
+	<e-grid-column field="Id"  headerText="Id" isPrimaryKey="true" isIdentity="true"></e-grid-column>
+	<e-grid-column field="Requirements"  headerText="Requirements"></e-grid-column>
+	<e-grid-column field="company_name"  headerText="company_name"></e-grid-column>
+	<e-grid-column field="Date_posted"  headerText="Date_posted"></e-grid-column>
+	<e-grid-column field="Job_title"  headerText="Job_title"></e-grid-column>
+	<e-grid-column field="Search_indeed"  headerText="Search_indeed"></e-grid-column>
+	<e-grid-column field="location"  headerText="location"></e-grid-column>
+	<e-grid-column field="Job_id"  headerText="Job_id"></e-grid-column>
+	<e-grid-column field="Spoken_Languages"  headerText="Spoken_Languages"></e-grid-column>
+	<e-grid-column field="Site_link"  headerText="Site_link"></e-grid-column>
+	<e-grid-column field="job_Description"  headerText="job_Description"></e-grid-column>
+	<e-grid-column field="payment_type"  headerText="payment_type"></e-grid-column>
+  </e-grid-columns>
+</ejs-grid>
+
+<script>
+function toolbarClick(args)
+{
+     if (args.item.id === this.element.id +'_csvexport') 
+   {
+    this.csvExport();
+   }
+}
+</script>
