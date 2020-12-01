@@ -7,24 +7,34 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - CareerInfo</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <title>@ViewData["Title"] - IT Career Info</title>
+
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    </environment>
     <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/18.3.35/material.css" />
+
     <script src="https://cdn.syncfusion.com/ej2/18.3.35/dist/ej2.min.js"></script>
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
         <a class="navbar-brand" href="#">IT Career Info</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                @if (SignInManager.IsSignedIn(User))
+                @if (User.IsInRole("Admin"))
                 {
                     <li class="nav-item active">
                         <a class="nav-link" asp-controller="Home" asp-action="Index">Home<span class="sr-only">(current)</span></a>
@@ -35,23 +45,44 @@
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="Jobs" asp-action="Jobs">Jobs</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Users" asp-action="Index">Users</a>
+                    </li>
                 }
-                else
+                @if (User.IsInRole("User"))
+                {
+                    <li class="nav-item active">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Jobs" asp-action="Jobs">Jobs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Favouritejobs" asp-action="Index">Favourites</a>
+                    </li>
+                }
+                @if (!(SignInManager.IsSignedIn(User)))
                 {
                     <li class="nav-item active">
                         <a class="nav-link" asp-controller="Home" asp-action="Index">Home<span class="sr-only">(current)</span></a>
                     </li>
                 }
+
             </ul>
             <partial name="_LoginPartial" />
         </div>
     </nav>
 
+
+
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2020 - CareerInfo</p>
+            <p>&copy; @DateTime.Now.Year - NOSQL</p>
         </footer>
     </div>
 

@@ -1,22 +1,25 @@
-﻿@model IEnumerable<CareerInfo.Temp.Favouritejobs>
+﻿@model IEnumerable<CareerInfo.Models.ListJob>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Favourites";
 }
 
-<h2>Index</h2>
+    <h2>Favourites</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Jobs" asp-controller="Jobs">Find More Jobs</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Jobid)
+                Job Title
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.User)
+                Company
+            </th>
+            <th>
+                Location
             </th>
             <th></th>
         </tr>
@@ -25,15 +28,17 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Jobid)
+                @Html.DisplayFor(modelItem => item.Job_title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.User.Id)
+                @Html.DisplayFor(modelItem => item.company_name)
             </td>
+            <th>
+                @Html.DisplayFor(modelItem => item.location)
+            </th>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Favouriteid">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Favouriteid">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Favouriteid">Delete</a>
+            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+            <a asp-action="Delete" asp-route-id="@item.FavouriteId">Delete</a>*
             </td>
         </tr>
 }

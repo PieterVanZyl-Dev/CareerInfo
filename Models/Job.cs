@@ -38,12 +38,52 @@ namespace CareerInfo.Models
         public string Job_title { get; set; }
         public string Search_indeed { get; set; }
         public string location { get; set; }
-        public string Job_id { get; set; }
         public string Spoken_Languages { get; set; }
         public string Site_link { get; set; }
 
         public string job_Description { get; set; }
         public payment_type payment_type { get; set; }
     }
+
+    [System.ComponentModel.DataAnnotations.Schema.Table("JobCollection")]
+    public class ResponseJob
+    {
+        [BsonId]
+        public ObjectId Id { get; set; }
+        public Requirements Requirements { get; set; }
+        public string company_name { get; set; }
+        public DateTime Date_posted { get; set; }
+        public string Job_title { get; set; }
+        public string Search_indeed { get; set; }
+        public string location { get; set; }
+        public string Spoken_Languages { get; set; }
+        public string Site_link { get; set; }
+        public string job_Description { get; set; }
+        public payment_type payment_type { get; set; }
+        public List<string> plangs { get; set; }
+        public List<string> erequirements { get; set; }
+    }
+
+    [System.ComponentModel.DataAnnotations.Schema.Table("JobCollection")]
+    public class ListJob
+    {
+        [BsonId]
+        public ObjectId Id { get; set; }
+        public Requirements Requirements { get; set; }
+        public string company_name { get; set; }
+        public DateTime Date_posted { get; set; }
+        public string Job_title { get; set; }
+        public string Search_indeed { get; set; }
+        public string location { get; set; }
+        public string Spoken_Languages { get; set; }
+        public string Site_link { get; set; }
+        public string job_Description { get; set; }
+        public payment_type payment_type { get; set; }
+        public decimal FavouriteId { get; set; }
+    }
+
+
+
+
 
 }

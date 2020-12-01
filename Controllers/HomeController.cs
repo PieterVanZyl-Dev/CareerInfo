@@ -8,16 +8,20 @@ using CareerInfo.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Collections;
 using CareerInfo.Services;
+using CareerInfo.Temp;
 
 namespace CareerInfo.Controllers
 {
     public class HomeController : Controller
     {
         private readonly JobService _jobService;
+        private readonly ModelContext _context;
 
-        public HomeController(JobService jobService)
+        public HomeController(JobService jobService,ModelContext context)
         {
             _jobService = jobService;
+            _context = context;
+
         }
 
 
@@ -35,11 +39,15 @@ namespace CareerInfo.Controllers
         {
             long count = _jobService.Count();
             List<double> average = _jobService.Average();
+            var favouritejobcount = _context.Favouritejobs.Count(f => f.User.UserName == User.Identity.Name);
+            var Usercount = _context.AspNetUsers.Count();
 
             ViewData["JobCount"] = count;
             ViewData["AverageSalary"] = Math.Round(average[0], 2, MidpointRounding.AwayFromZero);
-            ViewData["FavouritedJobs"] = "7";
-            ViewData["TotalCompanies"] = "90";
+            ViewData["MaxSalary"] = Math.Round(average[1], 2, MidpointRounding.AwayFromZero);
+            ViewData["Usercount"] = Usercount;
+            ViewData["FavouritedJobs"] = favouritejobcount;
+
 
             return View();
         }

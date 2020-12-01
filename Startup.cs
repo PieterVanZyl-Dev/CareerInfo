@@ -28,6 +28,8 @@ namespace CareerInfo
         {
             Configuration = configuration;
             SyncfusionLicenseProvider.RegisterLicense("MDAxQDMxMzgyZTMzMmUzMGE2aWRaVDZIZVNXQ1dOWUNZMlF4MVJCQkFDL2dFZHRUdFkzWXB1amFOVUE9");
+            //Environment.SetEnvironmentVariable("TNS_ADMIN", @"D:\home\site\wwwroot\DB");
+            //Environment.SetEnvironmentVariable("WALLET_LOCATION", @"D:\home\site\wwwroot\DB");
         }
 
         public IConfiguration Configuration { get; }
@@ -45,7 +47,8 @@ namespace CareerInfo
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
- 
+
+
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseOracle(
@@ -53,6 +56,8 @@ namespace CareerInfo
             services.AddDefaultIdentity<IdentityUser>()
                     .AddRoles<IdentityRole>()
                     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddScoped<IUserClaimsPrincipalFactory<IdentityUser>, UserClaimsPrincipalFactory<IdentityUser, IdentityRole>>();
 
 
             services.AddDbContext<ModelContext>(options =>
@@ -70,6 +75,7 @@ namespace CareerInfo
             services.AddSingleton<JobService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
 
 
 

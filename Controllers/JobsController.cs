@@ -9,6 +9,11 @@ using MongoDB.Bson;
 using Microsoft.AspNetCore.Authorization;
 using System.Net;
 using System;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
+using CareerInfo.Temp;
 
 namespace CareerInfo.Controllers
 {
@@ -16,17 +21,68 @@ namespace CareerInfo.Controllers
     public class JobsController : Controller
   {
         private readonly JobService _jobService;
+        private readonly ModelContext modelContext;
+       //private readonly UserManager<IdentityUser> userManager;
+       //private readonly RoleManager<IdentityRole> roleManager;
 
-        public JobsController(JobService jobService)
+        //, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager
+        public JobsController(JobService jobService, ModelContext odbcontext)
         {
             _jobService = jobService;
+           // this.userManager = userManager;
+            //this.roleManager = roleManager;
+            this.modelContext = odbcontext;
         }
 
+        //public async Task<System.Collections.Generic.IList<string>> GetRoleAsync()
+        //{
 
+
+        //    var userId = User.FindFirstValue(ClaimTypes.Name);
+        //    var user = await userManager.FindByNameAsync(userId);
+        //    return await userManager.GetRolesAsync(user);
+        //}
+
+        //public async Task CreateUserRoles()
+        //{
+
+        //    IdentityResult roleResult;
+        //    //Adding Admin Role
+        //    var roleCheck = await roleManager.RoleExistsAsync("Admin");
+        //    if (!roleCheck)
+        //    {
+        //        //create the roles and seed them to the database
+        //        roleResult = await roleManager.CreateAsync(new IdentityRole("Admin"));
+        //        roleResult = await roleManager.CreateAsync(new IdentityRole("User"));
+        //    }
+        //    //Assign Admin role to the main User here we have given our newly registered 
+        //    //login id for Admin management
+        //    IdentityUser auser = await userManager.FindByEmailAsync("agentpieter@gmail.com");
+        //    IdentityUser uuser = await userManager.FindByEmailAsync("pieterthepro@gmail.com");
+        //    var User = new IdentityUser();
+        //    await userManager.AddToRoleAsync(auser, "Admin");
+        //    await userManager.AddToRoleAsync(uuser, "User");
+        //}
+
+        [HttpPost]
+        public async Task<IActionResult> CreateFavourite(string JobId,string UserId)
+        {
+
+            Favouritejobs favouritejobs = new Favouritejobs();
+
+            favouritejobs.Jobid = JobId;
+            favouritejobs.Userid = UserId;
+            modelContext.Add(favouritejobs);
+            await modelContext.SaveChangesAsync();
+
+            return Json(JobId);
+        }
         public ActionResult Jobs()
         {
-            ViewData["IsAdmin"] = User.IsInRole("Admin");
-                return View();
+            
+
+
+            return View();
         }
         public ActionResult Details(string id)
         {
@@ -106,7 +162,7 @@ namespace CareerInfo.Controllers
             val.Date_posted = ord.Date_posted;
             val.Job_title = ord.Job_title;
             val.payment_type.amount = ord.payment_type.amount;
-            val.Job_id = ord.Job_id;
+            //val.Job_id = ord.Job_id;
             val.Spoken_Languages = ord.Spoken_Languages;
             val.Site_link = ord.Site_link;
 

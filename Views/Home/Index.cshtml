@@ -1,61 +1,349 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<div class="jumbotron">
-    <h1>Technology Developer Work Information</h1>
-    <p class="lead">No SQL, Presents Job Information for University Students and Gradutes to know more about their future !</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-large">Login/Register &raquo;</a></p>
-</div>
-
-<table class="tabstyle" style="margin-top:20px">
-    <tr>
-        <td style="padding:25px">
-            <div class="desc">
-                <p>
-                    You need to be logged in, to access the dashboard start by registering if you aren't registered already !
-                </p>
+<div id="scrollBar"></div>
+<div id="scrollPath"></div>
+<div id="clipBg"></div>
+<section id="showcase2">
+    <div class="container">
+        <div class="row">
+            <div class="column" style="padding-top: 20px;
+">
+                <div class="card" style="margin-top: 125px;">
+                    <h3> IT CAREER INFO</h3>
+                    <br>
+                    <h4>About</h4>
+                    <p>
+                        This platform is for providing current and graduate students information relating to their career
+                        choice in the IT field.
+                    </p>
+                </div>
             </div>
-        </td>
-    </tr>
-</table>
-<div class="clear"> </div>
+            <div class="column">
+                <div class="cards">
+                    <div class="row">
+                        <div class="columns">
+                            <img src="@Url.Content("~/images/avgsalary.png")" id="boxes" />
+                        </div>
+                        <div class="columns">
+                            <img src="@Url.Content("~/images/citysalary.png")" id="boxes" />
+                        </div>
+                        <div class="columns">
+                            <img src="@Url.Content("~/images/edulvl.png")" id="boxes" />
+                        </div>
+                    </div>
 
-<div class="row">
-    <div class="col-md-3">
-        <h3>Application uses</h3>
-        <ul>
-            <li>Sample pages using ASP.NET Core MVC</li>
-            <li>Theming using <a href="https://go.microsoft.com/fwlink/?LinkID=398939">Bootstrap</a></li>
-        </ul>
+                    <div class="row">
+                        <div class="columns">
+                            <img src="@Url.Content("~/images/eduunwind.png")" id="boxes" />
+                        </div>
+                        <div class="columns">
+                            <img src="@Url.Content("~/images/jobscity.png")" id="boxes" />
+                        </div>
+                        <div class="columns">
+                            <img src="@Url.Content("~/images/proglan.png")" id="boxes" />
+                        </div>
+                        <div class="columns">
+                            <img src="@Url.Content("~/images/progsalary.png")" id="boxes" />
+                        </div>
+                        <div class="columns">
+                            <img src="@Url.Content("~/images/salaryprog.png")" id="boxes" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-3">
-        <h3>How to</h3>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398600">Add a Controller and View</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699315">Manage User Secrets using Secret Manager.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699316">Use logging to log a message.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Add packages using NuGet.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699319">Target development, staging or production environment.</a></li>
-        </ul>
+
+</section>
+
+
+
+
+    <br>
+    <h2>Main Features</h2>
+
+
+    <p class="light">
+        The main features are retrieving live data via multiple online sources
+        and transforming them into visual representation of meaningful information.
+    </p>
+
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="column">
+                <div class="cards"><h2>Favourite Jobs<br><br></h2></div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <ul>
+                        <li>Software Developer</li>
+                        <li>Graphic Design</li>
+                        <li>Technician</li>
+                        <li>Java Developer</li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-3">
-        <h3>Overview</h3>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=518008">Conceptual overview of what is ASP.NET Core</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699320">Fundamentals of ASP.NET Core such as Startup and middleware.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398602">Working with Data</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398603">Security</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699321">Client side development</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699322">Develop on different platforms</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699323">Read more on the documentation site</a></li>
-        </ul>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="column" style="padding-top:50px">
+                <div class="card">
+                    <h2>Leading IT Careers</h2>
+                    <br><br>
+                    <p>
+                        Genuine statistics about careers that are currently on the rise
+                        and their current demand leading to their potentail salary.
+                    </p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="cards"><img src="@Url.Content("~/images/careersalary.png")" id="boxes"  /></div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-3">
-        <h3>Run &amp; Deploy</h3>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517851">Run your app</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517853">Run tools such as EF migrations and more</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
-        </ul>
-    </div>
-</div>
+    <br>
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            background-color: rgb(51, 51, 51);
+            color: whitesmoke;
+            justify-content: center;
+            align-self: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        bodycontent{
+            padding-left:0px;
+            padding-right:0px
+               
+        }
+
+
+        nav {
+            padding: 50px;
+            min-width: 500px;
+        }
+
+        /* Global */
+        .container {
+            max-width: none;
+            padding-bottom: 35px;
+            padding-right: 0px;
+            padding-left: 0px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+            .container #boxes {
+                position: relative;
+                max-width: 100%;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minimax(150px, 0.5fr));
+                grid-template-rows: minmax(150px, auto);
+                margin: 30px;
+                grid-auto-flow: dense;
+                border-radius: 5%;
+            }
+
+            .container .box {
+                padding: 5px;
+                display: grid;
+                text-align: center;
+            }
+
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        /* Header **/
+        header {
+            background: #ffffff;
+            color: white;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 5px solid;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100000;
+        }
+
+        #showcase2 {
+            border-bottom: #e8491d 5px solid;
+            float: left;
+            width: 100%;
+            background-color: white;
+            color: black;
+        }
+
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        header li {
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+
+
+        header #branding {
+            float: left;
+        }
+
+            header #branding h1 {
+                margin: 0;
+                margin-bottom: 10px;
+            }
+
+
+        header .highlight, header .current a {
+            color: rgb(4, 0, 12);
+            font-weight: bold;
+        }
+
+        header a:hover {
+            color: rgb(12, 11, 11);
+            font-weight: bold;
+        }
+
+        /* Showcase */
+        #showcase {
+            min-height: 400px;
+            text-align: center;
+            color: rgb(12, 11, 11);
+            background-color: rgb(12, 11, 11);
+        }
+
+
+            #showcase h1 {
+                margin-top: 100px;
+                font-size: 55px;
+                margin-bottom: 10px;
+            }
+
+            #showcase p {
+                font-size: 20px;
+            }
+
+        #boxes .box img {
+            width: 150%;
+        }
+
+        /* Sidebar */
+        aside#sidebar {
+            float: right;
+            width: 30%;
+            margin-top: 10px;
+        }
+
+        /* Main-col */
+        article#main-col {
+            float: left;
+            width: 85%;
+        }
+
+        footer {
+            padding: 20px;
+            margin-top: 20px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+
+        #icon {
+            font-size: 32px;
+        }
+
+        /* Float two columns side by side */
+        .column {
+            float: left;
+            width: 50%;
+            padding: 0 30px;
+        }
+
+        .columns {
+            float: left;
+            width: 30%;
+            padding: 0 30px;
+        }
+
+        /* Remove extra left and right margins, due to padding in columns */
+        .row {
+            margin: 0 -5px;
+        }
+
+            /* Clear floats after the columns */
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+        /* Style the counter cards */
+        .card {
+            padding: 32px;
+            text-align: center;
+            background-color: inherit;
+            box-shadow: 0 4px 8px 0 rgba(100, 100, 100, 0.2);
+        }
+
+        .cards {
+            box-shadow: 0 4px 8px 0 rgba(100, 100, 100, 0.2); /* this adds the "card" effect */
+            padding: 32px;
+            text-align: center;
+        }
+
+        /* Media Queries */
+        @@media(max-width: 991px) {
+            header #branding,
+            header nav,
+            header nav li,
+            #newsletter h1,
+            #newsletter form,
+            #boxes .box,
+            article#main-col,
+            aside#sidebar {
+                float: none;
+                text-align: center;
+                width: 100%;
+            }
+
+            .column {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+            }
+
+            #showcase h1 {
+                margin-top: 40px;
+            }
+
+            .container #boxes {
+                grid-template-columns: repeat(auto-fill, minimax(50%, 1fr));
+                grid-template-rows: minmax(auto, auto);
+            }
+        }
+    </style>
