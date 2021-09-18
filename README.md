@@ -19,5 +19,5 @@ Allowing you to filter by whatever coloumn you fancy.
 ![JobList](https://user-images.githubusercontent.com/20579513/102061333-016e7080-3dfc-11eb-85c6-d4f17301ae60.PNG)
 
 
-This project is unfortunately not hosted online as oracle autonomous warehouse wallets and Azure Web Service Hosting are not playing nicely, I even requested help from Oracle who told me I have implemented everything correctly and it should function as intended.
-I'm considering merging this with another project, and switching away from the oracle autonomous warehouse so I can show you the live hosted site.
+This project is unfortunately not hosted online as oracle autonomous warehouse wallets (secrets) and Azure Web Service Hosting are not integratable without paying a premium for the hosting, I even requested help from Oracle who told me I have implemented everything correctly and it should function as intended.
+I'm considering merging this with another project, and switching away from the oracle autonomous warehouse so I showcase the live hosted site.
